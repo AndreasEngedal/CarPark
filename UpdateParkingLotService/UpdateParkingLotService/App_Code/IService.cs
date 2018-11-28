@@ -11,9 +11,9 @@ using System.Text;
 public interface IService
 {
 	[OperationContract]
-	void AddCarToParkingLot(string carRegNr, int x, int y);
+	void AddCarToParkingLot(string carRegNr, int parkingSpaceId);
 
     [OperationContract]
-    void RemoveCarFromParkingLot(int x, int y);
+    void RemoveCarFromParkingLot(int parkingSpaceId);
 }
 

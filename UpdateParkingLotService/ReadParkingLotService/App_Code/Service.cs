@@ -17,18 +17,11 @@ public class Service : IService
 
         var parkingSpaces = dc.ParkingSpaces.Where(x => x.fk_parkingLotId == parkingLotId).ToList();
 
-        var parkingSpaceIds = new List<int>();
-        foreach (var item in parkingSpaces)
-            parkingSpaceIds.Add(item.id);
-
-        var cars = dc.Cars.Where(x => parkingSpaceIds.Contains(x.fk_parkingSpaceId)).ToList();
-
         foreach (var parkingSpace in parkingSpaces)
         {
-            var space = new DTOParkingSpace(parkingSpace.x, parkingSpace.y);
-            var car = cars.Find(x => x.fk_parkingSpaceId == parkingSpace.id);
-            if (car != null)
-                space.AddCar(car.regNr);
+            var space = new DTOParkingSpace(parkingSpace.id, parkingSpace.x, parkingSpace.y);
+            if (string.IsNullOrEmpty(parkingSpace.carRegNr))
+                space.AddCar(parkingSpace.carRegNr);
             list.Add(space);
         }
 

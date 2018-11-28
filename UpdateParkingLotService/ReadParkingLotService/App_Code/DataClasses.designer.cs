@@ -67,14 +67,6 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		OnCreated();
 	}
 	
-	public System.Data.Linq.Table<Car> Cars
-	{
-		get
-		{
-			return this.GetTable<Car>();
-		}
-	}
-	
 	public System.Data.Linq.Table<ParkingSpace> ParkingSpaces
 	{
 		get
@@ -88,51 +80,6 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<ParkingLot>();
-		}
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Car")]
-public partial class Car
-{
-	
-	private string _regNr;
-	
-	private int _fk_parkingSpaceId;
-	
-	public Car()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_regNr", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
-	public string regNr
-	{
-		get
-		{
-			return this._regNr;
-		}
-		set
-		{
-			if ((this._regNr != value))
-			{
-				this._regNr = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fk_parkingSpaceId", DbType="Int NOT NULL")]
-	public int fk_parkingSpaceId
-	{
-		get
-		{
-			return this._fk_parkingSpaceId;
-		}
-		set
-		{
-			if ((this._fk_parkingSpaceId != value))
-			{
-				this._fk_parkingSpaceId = value;
-			}
 		}
 	}
 }
@@ -151,6 +98,8 @@ public partial class ParkingSpace : INotifyPropertyChanging, INotifyPropertyChan
 	
 	private int _fk_parkingLotId;
 	
+	private string _carRegNr;
+	
 	private EntityRef<ParkingLot> _ParkingLot;
 	
     #region Extensibility Method Definitions
@@ -165,6 +114,8 @@ public partial class ParkingSpace : INotifyPropertyChanging, INotifyPropertyChan
     partial void OnyChanged();
     partial void Onfk_parkingLotIdChanging(int value);
     partial void Onfk_parkingLotIdChanged();
+    partial void OncarRegNrChanging(string value);
+    partial void OncarRegNrChanged();
     #endregion
 	
 	public ParkingSpace()
@@ -253,6 +204,26 @@ public partial class ParkingSpace : INotifyPropertyChanging, INotifyPropertyChan
 				this._fk_parkingLotId = value;
 				this.SendPropertyChanged("fk_parkingLotId");
 				this.Onfk_parkingLotIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_carRegNr", DbType="NVarChar(10)")]
+	public string carRegNr
+	{
+		get
+		{
+			return this._carRegNr;
+		}
+		set
+		{
+			if ((this._carRegNr != value))
+			{
+				this.OncarRegNrChanging(value);
+				this.SendPropertyChanging();
+				this._carRegNr = value;
+				this.SendPropertyChanged("carRegNr");
+				this.OncarRegNrChanged();
 			}
 		}
 	}

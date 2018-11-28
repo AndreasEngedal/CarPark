@@ -1,19 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ParkingLotDB" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=carparknorth.database.windows.net;Initial Catalog=ParkingLotDB;Persist Security Info=True;User ID=andreasengedal" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ParkingLotDBConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Car" Member="Cars">
-    <Type Name="Car">
-      <Column Name="regNr" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="fk_parkingSpaceId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="ParkingSpace_Car" Member="ParkingSpace" ThisKey="fk_parkingSpaceId" OtherKey="id" Type="ParkingSpace" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.ParkingSpace" Member="ParkingSpaces">
     <Type Name="ParkingSpace">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="x" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="y" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="fk_parkingLotId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="ParkingSpace_Car" Member="Cars" ThisKey="id" OtherKey="fk_parkingSpaceId" Type="Car" />
+      <Column Name="carRegNr" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Association Name="ParkingLot_ParkingSpace" Member="ParkingLot" ThisKey="fk_parkingLotId" OtherKey="id" Type="ParkingLot" IsForeignKey="true" />
     </Type>
   </Table>

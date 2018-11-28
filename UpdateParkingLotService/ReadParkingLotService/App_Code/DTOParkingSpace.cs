@@ -14,14 +14,17 @@ public class DTOParkingSpace
     public string CarRegNr { get; set; }
     [DataMember]
     public int[] Coordinates { get; set; }
+    [DataMember]
+    public int Id { get; set; }
 
     public bool IsOccupied
     {
         get { return !string.IsNullOrEmpty(CarRegNr); }
     }
 
-    public DTOParkingSpace(int x, int y)
+    public DTOParkingSpace(int id, int x, int y)
     {
+        this.Id = id;
         Coordinates = new int[2];
         Coordinates[0] = x;
         Coordinates[1] = y;
