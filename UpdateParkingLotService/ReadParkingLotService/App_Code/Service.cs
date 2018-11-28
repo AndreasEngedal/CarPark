@@ -19,34 +19,19 @@ public class Service : IService
 
         var parkingSpaceIds = new List<int>();
         foreach (var item in parkingSpaces)
-        {
             parkingSpaceIds.Add(item.id);
-        }
+
         var cars = dc.Cars.Where(x => parkingSpaceIds.Contains(x.fk_parkingSpaceId)).ToList();
 
         foreach (var parkingSpace in parkingSpaces)
         {
-            list.Add(new DTOParkingSpace(parkingSpace.x, parkingSpace.y));
+            var space = new DTOParkingSpace(parkingSpace.x, parkingSpace.y);
+            var car = cars.Find(x => x.fk_parkingSpaceId == parkingSpace.id);
+            if (car != null)
+                space.AddCar(car.regNr);
+            list.Add(space);
         }
 
-
-
-        //var parkingSpaces =
-        //    (from a in dc.GetTable<ParkingSpace>()
-        //        where a.fk_parkingLotId == parkingLotId
-        //        select a).ToList();
-
-        //var cars =
-        //    from a in dc.GetTable<Car>()
-        //    where parkingSpaces.Exists(x => x.id == a.fk_parkingSpaceId)
-        //    select a;
-
-        //foreach (var car in cars)
-        //{
-        //    var space = parkingSpaces.Find(x => x.id == car.fk_parkingSpaceId);
-        //    var dtoCar = list.Find(x => x.Coordinates[0] == space.x && x.Coordinates[1] == space.y);
-        //    dtoCar.AddCar(car.regNr);
-        //}
         return list;
     }
 
