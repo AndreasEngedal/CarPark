@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses">
+  <DataContextMoniker Name="/DataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0e2f3f04-1209-4894-8394-c0118e744f13" absoluteBounds="6.25, 1.125, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DataClassesDataContext/Car" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f3786c9d-0b73-4c17-9bd9-6e01d24a27db" absoluteBounds="6.265, 1.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ee324225-0d81-4872-8bc5-37498616f57b" absoluteBounds="3.5, 0.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataClassesDataContext/ParkingSpace" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e672dce5-3df7-46a8-a71c-15e3c504183b" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bb4599cd-7d98-47bc-9228-58cb886ddfcf" absoluteBounds="0.75, 1.125, 2, 1.1939925130208338">
+      <DataClassMoniker Name="/DataClassesDataContext/ParkingLot" />
+      <nestedChildShapes>
+        <elementListCompartment Id="49cc5716-a3fb-4410-bd2e-e5ec5daf7a82" absoluteBounds="0.765, 1.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 1.72199625651042); (6.25 : 1.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/ParkingSpace/ParkingSpace_Car" />
+      <nodes>
+        <classShapeMoniker Id="ee324225-0d81-4872-8bc5-37498616f57b" />
+        <classShapeMoniker Id="0e2f3f04-1209-4894-8394-c0118e744f13" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.72199625651042); (3.5 : 1.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/ParkingLot/ParkingLot_ParkingSpace" />
+      <nodes>
+        <classShapeMoniker Id="bb4599cd-7d98-47bc-9228-58cb886ddfcf" />
+        <classShapeMoniker Id="ee324225-0d81-4872-8bc5-37498616f57b" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
