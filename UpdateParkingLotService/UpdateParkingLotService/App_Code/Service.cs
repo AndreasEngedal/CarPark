@@ -14,31 +14,41 @@ public class Service : IService
     public void AddCarToParkingLot(string carRegNr, int parkingSpaceId)
     {
         string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings[1].ToString();
-        using (var conn = new SqlConnection(connectionString))
-        using (var command = new SqlCommand("AddCarToParkingSpace", conn)
-        {
-            CommandType = CommandType.StoredProcedure
-        })
-        {
-            conn.Open();
-            command.Parameters.Add(new SqlParameter("@RegNr", carRegNr));
-            command.Parameters.Add(new SqlParameter("@ParkingSpaceId", parkingSpaceId));
-            command.ExecuteNonQuery();
-        }
+		AddCarToParkingLot(carRegNr, parkingSpaceId, connectionString);
     }
 
-    public void RemoveCarFromParkingLot(int parkingSpaceId)
+	private void AddCarToParkingLot(string carRegNr, int parkingSpaceId, string connString)
+	{
+		using (var conn = new SqlConnection(connString))
+		using (var command = new SqlCommand("AddCarToParkingSpace", conn)
+		{
+			CommandType = CommandType.StoredProcedure
+		})
+		{
+			conn.Open();
+			command.Parameters.Add(new SqlParameter("@RegNr", carRegNr));
+			command.Parameters.Add(new SqlParameter("@ParkingSpaceId", parkingSpaceId));
+			command.ExecuteNonQuery();
+		}
+	}
+
+	public void RemoveCarFromParkingLot(int parkingSpaceId)
     {
         string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings[1].ToString();
-        using (var conn = new SqlConnection(connectionString))
-        using (var command = new SqlCommand("RemoveCarFromParkingSpace", conn)
-        {
-            CommandType = CommandType.StoredProcedure
-        })
-        {
-            conn.Open();
-            command.Parameters.Add(new SqlParameter("@ParkingSpaceId", parkingSpaceId));
-            command.ExecuteNonQuery();
-        }
+		RemoveCarFromParkingLot(parkingSpaceId, connectionString);
     }
+
+	private void RemoveCarFromParkingLot(int parkingSpaceId, string connString)
+	{
+		using (var conn = new SqlConnection(connString))
+		using (var command = new SqlCommand("RemoveCarFromParkingSpace", conn)
+		{
+			CommandType = CommandType.StoredProcedure
+		})
+		{
+			conn.Open();
+			command.Parameters.Add(new SqlParameter("@ParkingSpaceId", parkingSpaceId));
+			command.ExecuteNonQuery();
+		}
+	}
 }

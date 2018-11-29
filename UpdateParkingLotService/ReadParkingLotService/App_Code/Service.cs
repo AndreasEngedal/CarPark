@@ -12,21 +12,25 @@ public class Service : IService
 {
     List<DTOParkingSpace> IService.ReadAllParkingSpacesInParkingLot(int parkingLotId)
     {
-        List<DTOParkingSpace> list = new List<DTOParkingSpace>();
-        DataClassesDataContext dc = new DataClassesDataContext();
-
-        var parkingSpaces = dc.ParkingSpaces.Where(x => x.fk_parkingLotId == parkingLotId).ToList();
-
-        foreach (var parkingSpace in parkingSpaces)
-        {
-            var space = new DTOParkingSpace(parkingSpace.id, parkingSpace.x, parkingSpace.y);
-            if (string.IsNullOrEmpty(parkingSpace.carRegNr))
-                space.AddCar(parkingSpace.carRegNr);
-            list.Add(space);
-        }
-
-        return list;
+		return ReadAllParkingSpacesInParkingLot(parkingLotId, new DataClassesDataContext());
     }
+
+	private List<DTOParkingSpace> ReadAllParkingSpacesInParkingLot(int parkingLotId, DataClassesDataContext dc)
+	{
+		List<DTOParkingSpace> list = new List<DTOParkingSpace>();
+
+		var parkingSpaces = dc.ParkingSpaces.Where(x => x.fk_parkingLotId == parkingLotId).ToList();
+
+		foreach (var parkingSpace in parkingSpaces)
+		{
+			var space = new DTOParkingSpace(parkingSpace.id, parkingSpace.x, parkingSpace.y, parkingSpace.carRegNr);
+			if (string.IsNullOrEmpty(parkingSpace.carRegNr))
+				space.AddCar(parkingSpace.carRegNr);
+			list.Add(space);
+		}
+
+		return list;
+	}
 
     DTOParkingSpace IService.ReadParkingSpaceInParkingLotByRegNr(string carRgNr)
     {

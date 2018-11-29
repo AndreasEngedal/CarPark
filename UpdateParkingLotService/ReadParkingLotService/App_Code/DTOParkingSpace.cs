@@ -22,12 +22,13 @@ public class DTOParkingSpace
         get { return !string.IsNullOrEmpty(CarRegNr); }
     }
 
-    public DTOParkingSpace(int id, int x, int y)
+    public DTOParkingSpace(int id, int x, int y, string carRegNr)
     {
         this.Id = id;
         Coordinates = new int[2];
         Coordinates[0] = x;
         Coordinates[1] = y;
+		this.CarRegNr = carRegNr;
     }
 
     public void AddCar(string carRegNr)
