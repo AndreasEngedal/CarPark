@@ -8,9 +8,9 @@ using System.ServiceModel.Web;
 using System.Text;
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service" in code, svc and config file together.
-public class Service : IService
+public class Service : IService, ITest
 {
-    List<DTOParkingSpace> IService.ReadAllParkingSpacesInParkingLot(int parkingLotId)
+	List<DTOParkingSpace> IService.ReadAllParkingSpacesInParkingLot(int parkingLotId)
     {
 		return ReadAllParkingSpacesInParkingLot(parkingLotId, new DataClassesDataContext());
     }
@@ -36,4 +36,14 @@ public class Service : IService
     {
         throw new NotImplementedException();
     }
+
+	public List<DTOParkingSpace> TestReadAllParkingSpacesInParkingLot(int parkingLotId, DataClassesDataContext dc)
+	{
+		return ReadAllParkingSpacesInParkingLot(parkingLotId, dc);
+	}
+
+	public DTOParkingSpace TestReadParkingSpaceInParkingLotByRegNr(string carRgNr, DataClassesDataContext dc)
+	{
+		throw new NotImplementedException();
+	}
 }

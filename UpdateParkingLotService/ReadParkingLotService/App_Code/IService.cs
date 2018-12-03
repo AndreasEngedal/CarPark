@@ -16,3 +16,14 @@ public interface IService
     [OperationContract]
     DTOParkingSpace ReadParkingSpaceInParkingLotByRegNr(string carRgNr);
 }
+
+[ServiceContract]
+public interface ITest
+{ 
+	[OperationContract]
+List<DTOParkingSpace> TestReadAllParkingSpacesInParkingLot(int parkingLotId, DataClassesDataContext dc);
+
+[OperationContract]
+DTOParkingSpace TestReadParkingSpaceInParkingLotByRegNr(string carRgNr, DataClassesDataContext dc);
+}
+

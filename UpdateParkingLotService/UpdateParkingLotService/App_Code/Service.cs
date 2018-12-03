@@ -9,7 +9,7 @@ using System.ServiceModel.Web;
 using System.Text;
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service" in code, svc and config file together.
-public class Service : IService
+public class Service : IPublic, ITest
 {
     public void AddCarToParkingLot(string carRegNr, int parkingSpaceId)
     {
@@ -50,5 +50,15 @@ public class Service : IService
 			command.Parameters.Add(new SqlParameter("@ParkingSpaceId", parkingSpaceId));
 			command.ExecuteNonQuery();
 		}
+	}
+
+	public void TestAddCarToParkingLot(string carRegNr, int parkingSpaceId, string connString)
+	{
+		AddCarToParkingLot(carRegNr, parkingSpaceId, connString);
+	}
+
+	public void TestRemoveCarFromParkingLot(int parkingSpaceId, string connString)
+	{
+		RemoveCarFromParkingLot(parkingSpaceId, connString);
 	}
 }

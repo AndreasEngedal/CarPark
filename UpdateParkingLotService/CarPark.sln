@@ -25,8 +25,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "UpdateParkingLotService", "
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestUpdateParkingLotService", "TestUpdateParkingLotService\TestUpdateParkingLotService.csproj", "{6965E3F6-75D6-4EA0-94EB-A95C310A76B4}"
-EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ReadParkingLotService", "ReadParkingLotService\", "{317CF632-99EF-4C11-815D-FFA018BA577C}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
@@ -49,11 +47,15 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ReadParkingLotService", "Re
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestReadParkingLotService", "TestReadParkingLotService\TestReadParkingLotService.csproj", "{638C40CB-292A-4162-BD6D-FC87253BEB37}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarParkWpf", "CarParkWpf\CarParkWpf.csproj", "{F1BCC7E1-3829-494F-A755-3630D97A4864}"
 	ProjectSection(ProjectDependencies) = postProject
 		{317CF632-99EF-4C11-815D-FFA018BA577C} = {317CF632-99EF-4C11-815D-FFA018BA577C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAccesToWCF", "TestAccesToWCF\TestAccesToWCF.csproj", "{A37DE122-C83A-4CB5-84FC-A897596604EB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{317CF632-99EF-4C11-815D-FFA018BA577C} = {317CF632-99EF-4C11-815D-FFA018BA577C}
+		{C6A0536C-92F2-4114-A7F4-0AEB6795D70C} = {C6A0536C-92F2-4114-A7F4-0AEB6795D70C}
 	EndProjectSection
 EndProject
 Global
@@ -66,22 +68,18 @@ Global
 		{C6A0536C-92F2-4114-A7F4-0AEB6795D70C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6A0536C-92F2-4114-A7F4-0AEB6795D70C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{C6A0536C-92F2-4114-A7F4-0AEB6795D70C}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{6965E3F6-75D6-4EA0-94EB-A95C310A76B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6965E3F6-75D6-4EA0-94EB-A95C310A76B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6965E3F6-75D6-4EA0-94EB-A95C310A76B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6965E3F6-75D6-4EA0-94EB-A95C310A76B4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{317CF632-99EF-4C11-815D-FFA018BA577C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{317CF632-99EF-4C11-815D-FFA018BA577C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{317CF632-99EF-4C11-815D-FFA018BA577C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{317CF632-99EF-4C11-815D-FFA018BA577C}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{638C40CB-292A-4162-BD6D-FC87253BEB37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{638C40CB-292A-4162-BD6D-FC87253BEB37}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{638C40CB-292A-4162-BD6D-FC87253BEB37}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{638C40CB-292A-4162-BD6D-FC87253BEB37}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F1BCC7E1-3829-494F-A755-3630D97A4864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F1BCC7E1-3829-494F-A755-3630D97A4864}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1BCC7E1-3829-494F-A755-3630D97A4864}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1BCC7E1-3829-494F-A755-3630D97A4864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A37DE122-C83A-4CB5-84FC-A897596604EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A37DE122-C83A-4CB5-84FC-A897596604EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A37DE122-C83A-4CB5-84FC-A897596604EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A37DE122-C83A-4CB5-84FC-A897596604EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
